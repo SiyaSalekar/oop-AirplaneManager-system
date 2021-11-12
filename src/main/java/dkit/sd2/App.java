@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) {
         System.out.println("\n*** Inheritance Demo - Employee & Manager ***");
+        System.out.println("Git Test");
         App app = new App();
         app.start();
     }
@@ -39,31 +40,55 @@ public class App {
         employees.add(emp3);
         employees.add(m1);
         employees.add(m2);
-
+//
 //      Employee emp10 = null;
-//      employees.add(emp10);       // what happens?
+//      employees.add(emp10);
+// what happens?
 
 //      TODO#1 Write code to output all details from the arrayList (using toString())
         System.out.println("\nDetails from arraylist:");
+        for(Employee e : employees){
+            System.out.println(e);
+        }
 
 //      TODO#2 Write code to display only the salaries of all employees (including Managers)
         System.out.println("\nAll salaries:");
+        for(Employee e : employees){
+            System.out.println(e.getSalary()); //polymorphism - diff forms
+        }
 
 //      TODO#3 Examine the following code
 
-//        Employee e1 = m1;  // Is this OK - why or why not?
-//
-//        Manager m1  = e1;  // Is this OK - why or why not?
+       // Employee e1 = m1;  // Is this OK - why or why not? -- yes bcoz a manager is a employee
 
-//        Dynamic type & declared type of an Object reference
+      //  Manager m1  = e1;  // Is this OK - why or why not? -- no bcoz employee is not a manger
+        //Dynamic type & declared type of an Object reference
 
 //        TODO#4 Consider testing to see if two objects are equal
 
-//        TODO#5 Output only the Managers  (use toString() )
-
+//        TODO#5 Output only the Managers  (use toString() ) --- check to see what type the object is (instanceof)
+        System.out.println();
+        for(Employee e : employees){
+            if(e instanceof Manager){
+                System.out.println(e.toString());
+            }
+        }
 //        TODO#6 Output only the Employees (use toString() )
+        System.out.println();
+        for(Employee e : employees){
+            if(!(e instanceof Manager)){
+                System.out.println(e.toString());
+            }
+        }
 
 //        TODO#5  Output only the name and bonus for all Managers (but not Employees)
+        System.out.println();
+        for(Employee e : employees){
+            if(e instanceof Manager){
+                System.out.println(e.getName());
+                System.out.println(((Manager) e).getBonus());
+            }
+        }
 
     }
 }
