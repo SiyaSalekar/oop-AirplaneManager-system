@@ -11,6 +11,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("\n*** Inheritance Demo - Employee & Manager ***");
         System.out.println("GitHub Test");
+        System.out.println("GitHub Test2");
         App app = new App();
         app.start();
     }
